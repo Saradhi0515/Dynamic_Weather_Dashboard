@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dynamic Weather Dashboard</title>
+  <meta name="description" content="Real-time, location-based weather dashboard with current conditions and 5-day forecast." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="app-header">
+    <h1 class="app-title">Dynamic Weather Dashboard</h1>
+    <div class="controls">
+      <form id="searchForm" class="search-form" autocomplete="off">
+        <input id="cityInput" type="text" placeholder="Search city (e.g., London)" aria-label="City name" />
+        <button type="submit" class="btn">Search</button>
+      </form>
+      <button id="geoBtn" class="btn" title="Use my location" aria-label="Use my location">📍</button>
+      <label class="switch" title="Toggle °C/°F">
+        <input id="unitToggle" type="checkbox" aria-label="Toggle Celsius and Fahrenheit" />
+        <span class="slider"></span>
+        <span class="unit-label" id="unitLabel">°C</span>
+      </label>
+    </div>
+  </header>
+
+  <main>
+    <section id="status" role="status" aria-live="polite" class="status"></section>
+
+    <section id="currentWeather" class="card current-weather" aria-labelledby="currentWeatherTitle">
+      <h2 id="currentWeatherTitle">Current Weather</h2>
+      <div class="current-content">
+        <div class="temp-block">
+          <div class="temp" id="currentTemp">--</div>
+          <div class="feels" id="feelsLike">Feels like --</div>
+        </div>
+        <div class="meta">
+          <div class="city" id="cityName">—</div>
+          <div class="desc" id="weatherDesc">—</div>
+          <div class="extra">
+            <span id="humidity">Humidity: --%</span>
+            <span id="wind">Wind: --</span>
+          </div>
+        </div>
+        <img id="weatherIcon" alt="Weather icon" class="icon" />
+      </div>
+    </section>
+
+    <section id="forecast" class="card forecast" aria-labelledby="forecastTitle">
+      <h2 id="forecastTitle">5-Day Forecast</h2>
+      <div id="forecastGrid" class="forecast-grid"></div>
+    </section>
+
+    <section id="recent" class="card recent" aria-labelledby="recentTitle">
+      <h2 id="recentTitle">Recent Searches</h2>
+      <div id="recentList" class="recent-list"></div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>
+      Data by <a href="https://openweathermap.org/" target="_blank" rel="noopener noreferrer">OpenWeatherMap</a> ·
+      Built with HTML, CSS, and JavaScript
+    </p>
+  </footer>
+
+  <script src="config.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
+</html>
